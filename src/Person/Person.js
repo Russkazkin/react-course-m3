@@ -1,4 +1,4 @@
-const person = ({name, age, children}) => {
+const Person = ({name, age, children}) => {
     return (
         <div>
             <p>I'm {name} and I'm years {age} years old!</p>
@@ -7,4 +7,4 @@ const person = ({name, age, children}) => {
     );
 }
 
-export default person;
+export default Person;
