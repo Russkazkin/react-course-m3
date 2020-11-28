@@ -3,7 +3,7 @@ import Person from "./Person/Person";
 import {useState} from "react";
 
 function App() {
-    const [persons] = useState([
+    const [persons, setPersons] = useState([
         {name: 'Ruslan', age: 45},
         {name: 'Julia', age: 46},
         {name: 'Alex', age: 19},
@@ -14,7 +14,12 @@ function App() {
         <div className="App">
             <h1>Hello World! I'm React App</h1>
             <p>This is really working!</p>
-            <button>Switch Name</button>
+            <button onClick={() => setPersons([
+                {name: 'Ruslan', age: 45},
+                {name: 'Julia', age: 46},
+                {name: 'Alexandra', age: 19},
+                {name: 'Maria', age: 9},
+            ])}>Switch Name</button>
             <Person name={persons[0].name} age={persons[0].age}/>
             <Person name={persons[1].name} age={persons[1].age}/>
             <Person name={persons[2].name} age={persons[2].age}/>
