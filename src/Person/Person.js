@@ -1,3 +1,5 @@
+import './Person.sass';
+
 const Person = ({name, age, click, changed, children}) => {
     return (
         <div>
