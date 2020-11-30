@@ -23,6 +23,17 @@ class App extends Component {
         });
     };
 
+    nameChangedHandler = (event) => {
+        this.setState({
+            persons: [
+                {name: 'Ruslan', age: 45},
+                {name: 'Julia', age: 46},
+                {name: event.target.value, age: 19},
+                {name: 'Maria', age: 9},
+            ]
+        });
+    }
+
 
     render() {
         return (
@@ -36,7 +47,8 @@ class App extends Component {
                         age={this.state.persons[1].age}/>
                 <Person name={this.state.persons[2].name}
                         age={this.state.persons[2].age}
-                        click={this.switchNameHandler.bind(this, 'Alexandra')}/>
+                        click={this.switchNameHandler.bind(this, 'Alexandra')}
+                        changed={this.nameChangedHandler}/>
                 <Person name={this.state.persons[3].name}
                         age={this.state.persons[3].age}>
                     I like cats!
