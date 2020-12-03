@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import 'bootstrap';
+import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
 import Person from './Person/Person';
 
@@ -38,18 +38,13 @@ class App extends Component {
 
     render() {
         const style = {
-            backgroundColor: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            borderRadius: '4px',
-            cursor: 'pointer',
+            color: 'white',
         };
         return (
-            <div className="App">
+            <div className="App container">
                 <h1>Hello World! I'm React App</h1>
                 <p>This is really working!</p>
-                <button style={style} onClick={() => this.switchNameHandler('Pyndel')}>Switch Name</button>
+                <button className="btn btn-info" style={style} onClick={() => this.switchNameHandler('Pyndel')}>Switch Name</button>
                 <Person name={this.state.persons[0].name}
                         age={this.state.persons[0].age}/>
                 <Person name={this.state.persons[1].name}
