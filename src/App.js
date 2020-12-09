@@ -6,10 +6,10 @@ import Person from './Person/Person';
 class App extends Component {
     state = {
         persons: [
-            {name: 'Ruslan', age: 45},
-            {name: 'Julia', age: 46},
-            {name: 'Alex', age: 19},
-            {name: 'Masha', age: 9},
+            {id: 'gade96', name: 'Ruslan', age: 45},
+            {id: 'asfh35', name: 'Julia', age: 46},
+            {id: 'gagd84', name: 'Alex', age: 19},
+            {id: 'agga65', name: 'Masha', age: 9},
         ],
         showPersons: false,
     };
@@ -39,7 +39,7 @@ class App extends Component {
             persons = (
                 <div>
                     {this.state.persons.map((person, index) => {
-                        return <Person {...person} click={() => this.deletePersonHandler(index)} />
+                        return <Person {...person} click={() => this.deletePersonHandler(index)} key={person.id}/>
                     })}
                 </div>
             );
