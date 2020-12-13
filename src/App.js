@@ -67,7 +67,7 @@ class App extends Component {
             <div className="App container">
                 <h1>Hello World! I'm React App</h1>
                 <p>This is really working!</p>
-                <button className="btn btn-info" style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                <button className={"btn " + (this.state.showPersons ? 'btn-success' : 'btn-info')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
                 {persons}
             </div>
         );
