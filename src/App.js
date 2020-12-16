@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import styled from "styled-components";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
 import Person from './Person/Person';
+
+const StyledApp = styled.div`
+  color: #777;
+`;
 
 class App extends Component {
     state = {
@@ -64,12 +69,12 @@ class App extends Component {
             );
         }
         return (
-            <div className="App container">
+            <StyledApp className="App container">
                 <h1>Hello World! I'm React App</h1>
                 <p>This is really working!</p>
                 <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
                 {persons}
-            </div>
+            </StyledApp>
         );
     }
 }

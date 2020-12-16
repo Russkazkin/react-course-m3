@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 
 const Person = ({name, age, click, changed, children}) => {
     return (
-       <StyledDiv className="Person">
+       <StyledDiv className="Person card">
             <div className="card-body">
                 <p onClick={click}>I'm {name} and I'm years {age} years old!</p>
                 <p>{children}</p>
