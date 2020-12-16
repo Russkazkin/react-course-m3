@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {StyleRoot} from "radium";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
 import Person from './Person/Person';
@@ -65,14 +64,12 @@ class App extends Component {
             );
         }
         return (
-            <StyleRoot>
-                <div className="App container">
-                    <h1>Hello World! I'm React App</h1>
-                    <p>This is really working!</p>
-                    <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-                    {persons}
-                </div>
-            </StyleRoot>
+            <div className="App container">
+                <h1>Hello World! I'm React App</h1>
+                <p>This is really working!</p>
+                <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                {persons}
+            </div>
         );
     }
 }

@@ -1,15 +1,8 @@
 import './Person.sass';
-import Radium from "radium";
 
 const Person = ({name, age, click, changed, children}) => {
     const style = {
-        ':hover': {
-            backgroundColor: '#111',
-            color: '#fff',
-        },
-        '@media (max-width: 500px)': {
-            width: '20rem',
-        },
+
     };
     return (
         <div className="Person card" style={style}>
@@ -22,4 +15,4 @@ const Person = ({name, age, click, changed, children}) => {
     );
 }
 
-export default Radium(Person);
+export default Person;
