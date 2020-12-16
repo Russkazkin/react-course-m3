@@ -6,7 +6,10 @@ const Person = ({name, age, click, changed, children}) => {
         ':hover': {
             backgroundColor: '#111',
             color: '#fff',
-        }
+        },
+        '@media (max-width: 500px)': {
+            width: '20rem',
+        },
     };
     return (
         <div className="Person card" style={style}>
