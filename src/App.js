@@ -6,7 +6,11 @@ import Person from './Person/Person';
 
 const StyledApp = styled.div`
   color: #777;
+  h1 {
+    color: ${props => props.alt ? 'red' :  '#000'};
+  }
 `;
+
 
 class App extends Component {
     state = {
@@ -69,7 +73,7 @@ class App extends Component {
             );
         }
         return (
-            <StyledApp className="App container">
+            <StyledApp alt={this.state.showPersons} className="App container">
                 <h1>Hello World! I'm React App</h1>
                 <p>This is really working!</p>
                 <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
