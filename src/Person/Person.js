@@ -1,4 +1,4 @@
-import './Person.sass';
+import styles from './Person.module.sass';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 
 const Person = ({name, age, click, changed, children}) => {
     return (
-       <StyledDiv className="Person card">
+       <StyledDiv className={'card ' + styles.Person}>
             <div className="card-body">
                 <p onClick={click}>I'm {name} and I'm years {age} years old!</p>
                 <p>{children}</p>
