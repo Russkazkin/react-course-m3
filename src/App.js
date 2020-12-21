@@ -3,11 +3,13 @@ import styled from "styled-components";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 const StyledApp = styled.div`
   color: #777;
+
   h1 {
-    color: ${props => props.alt ? 'red' :  '#000'};
+    color: ${props => props.alt ? 'red' : '#000'};
   }
 `;
 
@@ -64,10 +66,11 @@ class App extends Component {
             persons = (
                 <div>
                     {this.state.persons.map((person, index) => {
-                        return <Person {...person}
-                                       click={() => this.deletePersonHandler(index)}
-                                       changed={(event) => this.nameChangedHandler(event, person.id)}
-                                       key={person.id}/>
+                        return <ErrorBoundary key={person.id}>
+                            <Person {...person}
+                                    click={() => this.deletePersonHandler(index)}
+                                    changed={(event) => this.nameChangedHandler(event, person.id)}/>
+                        </ErrorBoundary>
                     })}
                 </div>
             );
@@ -76,7 +79,10 @@ class App extends Component {
             <StyledApp alt={this.state.showPersons} className="App container">
                 <h1>Hello World! I'm React App</h1>
                 <p>This is really working!</p>
-                <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')} style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')}
+                        style={style}
+                        onClick={this.togglePersonsHandler}>Toggle Persons
+                </button>
                 {persons}
             </StyledApp>
         );
