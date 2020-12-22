@@ -1,3 +1,4 @@
+import React from "react";
 import styles from './Person.module.sass';
 import styled from 'styled-components';
 
