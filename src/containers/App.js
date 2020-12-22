@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import styled from "styled-components";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
-import Person from './Person/Person';
-import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import Person from "../components/Persons/Person/Person";
 
 const StyledApp = styled.div`
   color: #777;
