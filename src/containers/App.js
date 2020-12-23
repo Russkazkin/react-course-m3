@@ -1,17 +1,8 @@
 import React, {Component} from 'react';
-import styled from "styled-components";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
 import Persons from "../components/Persons/Persons";
-
-const StyledApp = styled.div`
-  color: #777;
-
-  h1 {
-    color: ${props => props.alt ? 'red' : '#000'};
-  }
-`;
-
+import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
     state = {
@@ -55,10 +46,6 @@ class App extends Component {
 
 
     render() {
-        const style = {
-            color: 'white',
-        };
-
         let persons = null;
 
         if (this.state.showPersons) {
@@ -67,15 +54,10 @@ class App extends Component {
                                     nameChangedHandler={this.nameChangedHandler}/>
         }
         return (
-            <StyledApp alt={this.state.showPersons} className="App container">
-                <h1>Hello World! I'm React App</h1>
-                <p>This is really working!</p>
-                <button className={"btn " + (this.state.showPersons ? 'btn-danger' : 'btn-success')}
-                        style={style}
-                        onClick={this.togglePersonsHandler}>Toggle Persons
-                </button>
+            <App alt={this.state.showPersons} className="App container">
+                <Cockpit showPersons={this.state.showPersons} />
                 {persons}
-            </StyledApp>
+            </App>
         );
     }
 }
