@@ -12,13 +12,13 @@ const StyledDiv = styled.div`
   }
 `;
 
-const Cockpit = ({showPersons}) => (
+const Cockpit = ({showPersons, togglePersonsHandler}) => (
     <StyledDiv>
         <h1>Hello World! I'm React App</h1>
         <p>This is really working!</p>
         <button className={"btn " + (showPersons ? 'btn-danger' : 'btn-success')}
                 style={style}
-                onClick={this.togglePersonsHandler}>Toggle Persons
+                onClick={togglePersonsHandler}>Toggle Persons
         </button>
     </StyledDiv>
 );

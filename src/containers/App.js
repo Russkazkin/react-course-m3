@@ -54,10 +54,12 @@ class App extends Component {
                                     nameChangedHandler={this.nameChangedHandler}/>
         }
         return (
-            <App alt={this.state.showPersons} className="App container">
-                <Cockpit showPersons={this.state.showPersons} />
+            <div alt={this.state.showPersons} className="App container">
+                <Cockpit showPersons={this.state.showPersons}
+                         togglePersonsHandler={this.togglePersonsHandler}
+                />
                 {persons}
-            </App>
+            </div>
         );
     }
 }
