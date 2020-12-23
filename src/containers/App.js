@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import styled from "styled-components";
 import 'bootstrap/scss/bootstrap.scss';
 import './App.css';
-import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import Person from "../components/Persons/Person/Person";
+import Persons from "../components/Persons/Persons";
 
 const StyledApp = styled.div`
   color: #777;
@@ -63,17 +62,9 @@ class App extends Component {
         let persons = null;
 
         if (this.state.showPersons) {
-            persons = (
-                <div>
-                    {this.state.persons.map((person, index) => {
-                        return <ErrorBoundary key={person.id}>
-                            <Person {...person}
-                                    click={() => this.deletePersonHandler(index)}
-                                    changed={(event) => this.nameChangedHandler(event, person.id)}/>
-                        </ErrorBoundary>
-                    })}
-                </div>
-            );
+           persons = <Persons persons={this.state.persons}
+                                    deletePersonHandler={this.deletePersonHandler}
+                                    nameChangedHandler={this.nameChangedHandler}/>
         }
         return (
             <StyledApp alt={this.state.showPersons} className="App container">
