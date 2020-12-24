@@ -12,9 +12,9 @@ const StyledDiv = styled.div`
   }
 `;
 
-const Cockpit = ({showPersons, togglePersonsHandler}) => (
+const Cockpit = ({showPersons, togglePersonsHandler, title}) => (
     <StyledDiv>
-        <h1>Hello World! I'm React App</h1>
+        <h1>Hello World! I'm {title}</h1>
         <p>This is really working!</p>
         <button className={"btn " + (showPersons ? 'btn-danger' : 'btn-success')}
                 style={style}
