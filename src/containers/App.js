@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/scss/bootstrap.scss';
-import './App.css';
+import './App.sass';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
