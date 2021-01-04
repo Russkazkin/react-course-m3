@@ -1,11 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import Person from "./Person/Person";
 
-class Persons extends Component {
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps.persons !== this.props.persons;
-    }
+class Persons extends PureComponent {
     render() {
         const {persons, deletePersonHandler, nameChangedHandler} = this.props;
         return persons.map((person, index) => (
