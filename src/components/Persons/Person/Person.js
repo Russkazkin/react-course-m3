@@ -11,6 +11,8 @@ const StyledDiv = styled.div`
 `;
 
 class Person extends Component {
+    static contextType = AuthContext;
+
     constructor(props) {
         super(props);
         this.inputElement = React.createRef();
@@ -25,9 +27,7 @@ class Person extends Component {
         return (
             <StyledDiv className={'card ' + styles.Person}>
                 <div className="card-body">
-                    <AuthContext.Consumer>
-                        {(context) => context.authenticated ? <p>Authenticated</p> : <p>Please login!</p>}
-                    </AuthContext.Consumer>
+                    {this.context.authenticated ? <p>Authenticated</p> : <p>Please login!</p>}
                     <p onClick={click}>I'm {name} and I'm years {age} years old!</p>
                     <p>{children}</p>
                     <input ref={this.inputElement}

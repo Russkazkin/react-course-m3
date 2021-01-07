@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import styled from "styled-components";
 import AuthContext from '../../context/auth-context';
 
@@ -16,6 +16,7 @@ const StyledDiv = styled.div`
 
 const Cockpit = ({showPersons, togglePersonsHandler, title, login}) => {
     const toggleButton = useRef(null);
+    const authContext = useContext(AuthContext);
 
     useEffect(() => {
         toggleButton.current.click();
@@ -30,9 +31,7 @@ const Cockpit = ({showPersons, togglePersonsHandler, title, login}) => {
                     style={style}
                     onClick={togglePersonsHandler}>Toggle Persons
             </button>
-            <AuthContext.Consumer>
-                {(context) => <button className="btn btn-primary" onClick={context.login}>Login</button>}
-            </AuthContext.Consumer>
+            <button className="btn btn-primary" onClick={authContext.login}>Login</button>
         </StyledDiv>
     );
 }
