@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import styles from './Person.module.sass';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledDiv = styled.div`
   @media (max-width: 767px) {
@@ -21,6 +22,13 @@ class Person extends Component {
             </StyledDiv>
         );
     }
+}
+
+Person.propTypes = {
+    name: PropTypes.string,
+    age: PropTypes.number,
+    click: PropTypes.func,
+    changed: PropTypes.func,
 }
 
 export default Person;
