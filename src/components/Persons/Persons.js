@@ -9,7 +9,7 @@ class Persons extends PureComponent {
             <ErrorBoundary key={person.id}>
                 <Person {...person}
                         click={() => deletePersonHandler(index)}
-                        changed={(event) => nameChangedHandler(event, person.id)}/>
+                        changed={(event) => nameChangedHandler(event, person.id)} />
             </ErrorBoundary>
         ));
     }

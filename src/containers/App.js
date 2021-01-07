@@ -3,8 +3,8 @@ import 'bootstrap/scss/bootstrap.scss';
 import './App.sass';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import Aux from "../hoc/Aux";
 import withClass from "../hoc/withClass";
+import AuthContext from "../context/auth-context";
 
 class App extends Component {
     state = {
@@ -15,6 +15,7 @@ class App extends Component {
             {id: 'agga65', name: 'Masha', age: 9},
         ],
         showPersons: false,
+        authenticated: false,
     };
 
     deletePersonHandler = (personIndex) => {
@@ -46,23 +47,32 @@ class App extends Component {
         })
     }
 
+    loginHandler = () => {
+        this.setState({
+            authenticated: true,
+        });
+    }
+
 
     render() {
         let persons = null;
 
         if (this.state.showPersons) {
-           persons = <Persons persons={this.state.persons}
-                                    deletePersonHandler={this.deletePersonHandler}
-                                    nameChangedHandler={this.nameChangedHandler}/>
+            persons = <Persons
+                persons={this.state.persons}
+                deletePersonHandler={this.deletePersonHandler}
+                nameChangedHandler={this.nameChangedHandler} />
         }
         return (
-            <Aux>
+            <AuthContext.Provider value={{
+                authenticated: this.state.authenticated,
+                login: this.loginHandler}}>
                 <Cockpit showPersons={this.state.showPersons}
                          togglePersonsHandler={this.togglePersonsHandler}
                          title={this.props.appTitle}
                 />
                 {persons}
-            </Aux>
+            </AuthContext.Provider>
         );
     }
 }
