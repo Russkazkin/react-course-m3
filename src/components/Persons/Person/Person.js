@@ -10,6 +10,15 @@ const StyledDiv = styled.div`
 `;
 
 class Person extends Component {
+    constructor(props) {
+        super(props);
+        this.inputElement = React.createRef();
+    }
+
+    componentDidMount() {
+        this.inputElement.current.focus();
+    }
+
     render() {
         const {name, age, click, changed, children} = this.props;
         return (
@@ -17,7 +26,10 @@ class Person extends Component {
                 <div className="card-body">
                     <p onClick={click}>I'm {name} and I'm years {age} years old!</p>
                     <p>{children}</p>
-                    <input className="form-control" onChange={changed} value={name}/>
+                    <input ref={this.inputElement}
+                           className="form-control"
+                           onChange={changed}
+                           value={name}/>
                 </div>
             </StyledDiv>
         );
