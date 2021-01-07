@@ -3,7 +3,8 @@ import 'bootstrap/scss/bootstrap.scss';
 import './App.sass';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClass from "../hoc/WithClass";
+import Aux from "../hoc/Aux";
+import withClass from "../hoc/withClass";
 
 class App extends Component {
     state = {
@@ -55,15 +56,15 @@ class App extends Component {
                                     nameChangedHandler={this.nameChangedHandler}/>
         }
         return (
-            <WithClass classes="App container">
+            <Aux>
                 <Cockpit showPersons={this.state.showPersons}
                          togglePersonsHandler={this.togglePersonsHandler}
                          title={this.props.appTitle}
                 />
                 {persons}
-            </WithClass>
+            </Aux>
         );
     }
 }
 
-export default App;
+export default withClass(App, 'App container');
